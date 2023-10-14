@@ -1,9 +1,9 @@
 # NMEAGP
-Library for NMEA GPS modules, like NEO-6M.
+Library for NMEA GPS modules, like NEO-6M and NEO-7M.
 
 How to start?
 -------------
-For instalation just download last release.
+For instalation download last release and copy to project folder.
 
 
 Compatible:
@@ -20,24 +20,24 @@ You can make connection with using Software Serial (SWS) or Hardware Serial (HWS
 
 The main methods:
 -------------
-constuctor `NMEA()` the argument is pointer to HWS(if compatible) or SWS
+constuctor `NMEAGP()` the argument is pointer to HWS(if compatible) or SWS.
 
-`connection()` the argument is timeout in milliseconds, standart is 1000ms
+`connect()` the argument is timeout in milliseconds, standart is 1000ms.
 
 `updateData()` this function dont wait the new data, and just check RX-buffer, if RX-buffer contains a new NMEA-string, then data is updated.
 
 `updateData_force()` this function is wait the new data,when RX-buffer contains a new NMEA-string, then data is updated.
 
-Methods for getting data:
+Public methods for obtaining data:
 ------------
 
-`getTimeUTC()`
+`getTimeUTC()` returns the object of UTC time, with 3 fields: `.hours` , `.minuts` and `.seconds`.
 
-`getDataStatus()`
+`getDataStatus()` returns the current status of the data.
 
-`getCoordinates()`
+`getCoordinates()` returns the object of coordinates, with 2 subobjects: `.latitude` and `.longitude` with the same fields: `.value` and `.units` with . 
 
-`getHeading()`
+`getHeading()` returns the current cours of movement in degres.
 
 `getStartDate()`
 
@@ -51,3 +51,20 @@ Methods for getting data:
 
 `getQualityIndicatorStr()`
 
+`getsatellitesCount()`
+
+`getUndulation()`
+
+`getAgeCorectData()`
+
+`getStaionID()`
+
+`getModeFix()`
+
+`getPrnNums()`
+
+`getPositionDilutOfPres()`
+
+`getHorizontalDilutOfPres()`
+
+`getVerticalDilutOfPres()`
